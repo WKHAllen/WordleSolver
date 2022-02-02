@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include <stddef.h>
+#include "globals.h"
 
 /*
  * A node in the dictionary.
@@ -33,6 +34,11 @@ Dict *new_dict(void);
  * Read a dictionary from a file.
  */
 int read_dict(Dict *dict, const char *dictpath);
+
+/*
+ * Filter words out of a dictionary.
+ */
+Dict *filter_dict(const Dict *dict, BOOL (*filter_callback)(const char *));
 
 /*
  * Free the memory used by the dictionary.

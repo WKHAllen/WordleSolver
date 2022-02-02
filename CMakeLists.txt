@@ -7,7 +7,7 @@ project(WordleSolver VERSION 1.0.0)
 file(GLOB CSources ${CMAKE_CURRENT_LIST_DIR}/src/*.c)
 add_executable(WordleSolver ${CSources})
 
-# copy the dictionaries to the build
+# copy the assets to the build
 add_custom_command(TARGET WordleSolver PRE_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/dict/ $<TARGET_FILE_DIR:WordleSolver>/dict)
+    ${CMAKE_SOURCE_DIR}/assets/ $<TARGET_FILE_DIR:WordleSolver>/assets)

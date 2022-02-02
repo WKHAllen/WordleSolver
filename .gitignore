@@ -52,5 +52,6 @@ Mkfile.old
 dkms.conf
 
 # Misc
+todo.txt
 build.bat
 run.bat
