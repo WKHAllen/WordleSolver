@@ -4,7 +4,8 @@ cmake_minimum_required(VERSION 3.10)
 project(WordleSolver VERSION 1.0.0)
 
 # add the executable
-add_executable(WordleSolver ${CMAKE_CURRENT_LIST_DIR}/src/main.c)
+file(GLOB CSources ${CMAKE_CURRENT_LIST_DIR}/src/*.c)
+add_executable(WordleSolver ${CSources})
 
 # copy the dictionaries to the build
 add_custom_command(TARGET WordleSolver PRE_BUILD
