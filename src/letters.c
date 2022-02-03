@@ -36,3 +36,29 @@ int get_commonality(const int *letters, const char letter) {
 void free_letters(int *letters) {
   free(letters);
 }
+
+BOOL *new_flagged_letters(void) {
+  int *letters = malloc(26 * sizeof(BOOL));
+
+  for (int i = 0; i < 26; i++) {
+    letters[i] = FALSE;
+  }
+
+  return letters;
+}
+
+void flag_letter(BOOL *letters, const char letter) {
+  letters[letter - 'a'] = TRUE;
+}
+
+void unflag_letter(BOOL *letters, const char letter) {
+  letters[letter - 'a'] = FALSE;
+}
+
+BOOL is_letter_flagged(const BOOL *letters, const char letter) {
+  return letters[letter - 'a'];
+}
+
+void free_flagged_letters(BOOL *letters) {
+  free(letters);
+}

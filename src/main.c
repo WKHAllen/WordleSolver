@@ -47,9 +47,18 @@ int main(int argc, char **argv) {
     printf("Letter %c: %d\n", c, get_commonality(letters, c));
   }
 
+  // Use flagged letters array
+  BOOL *flagged_letters = new_flagged_letters();
+  printf("C is %s\n", is_letter_flagged(flagged_letters, 'c') ? "flagged" : "not flagged");
+  flag_letter(flagged_letters, 'c');
+  printf("C is %s\n", is_letter_flagged(flagged_letters, 'c') ? "flagged" : "not flagged");
+  unflag_letter(flagged_letters, 'c');
+  printf("C is %s\n", is_letter_flagged(flagged_letters, 'c') ? "flagged" : "not flagged");
+
   // Done
   free_dict(five_letter_dict);
   free_letters(letters);
+  free_flagged_letters(flagged_letters);
   printf("Done\n");
   return 0;
 }
