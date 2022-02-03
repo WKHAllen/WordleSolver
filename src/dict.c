@@ -1,18 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "readdict.h"
+#include "dict.h"
 #include "globals.h"
-
-size_t get_line(FILE *fp, char *line, int max) {
-  if (fgets(line, max, fp) == NULL) {
-    return 0;
-  } else {
-    size_t linelen = strlen(line);
-    line[linelen - 1] = '\0';
-    return linelen - 1;
-  }
-}
 
 Dict *new_dict(void) {
   Dict *dict = malloc(sizeof(Dict));
@@ -29,27 +19,27 @@ void dict_set_next_word(Dict *node, const char *word) {
   node->next = new_node;
 }
 
-int read_dict(Dict *dict, const char *dictpath) {
+int read_dict(Dict *dict, const char *dict_path) {
   Dict *current = dict;
   char buffer[MAX_LINE_LEN];
 
   FILE *fp;
-  if (fopen_s(&fp, dictpath, "r") != 0) {
-    return READDICT_OPEN_FILE_ERROR;
+  if (fopen_s(&fp, dict_path, "r") != 0) {
+    return DICT_OPEN_FILE_ERROR;
   }
 
   size_t linelen = 1;
-  while ((linelen = get_line(fp, buffer, MAX_LINE_LEN)) > 0) {
+  while ((linelen = get_file_line(fp, buffer, MAX_LINE_LEN)) > 0) {
     dict_set_next_word(current, buffer);
     current = current->next;
     dict->size++;
   }
 
   if (fclose(fp) != 0) {
-    return READDICT_CLOSE_FILE_ERROR;
+    return DICT_CLOSE_FILE_ERROR;
   }
 
-  return READDICT_SUCCESS;
+  return DICT_SUCCESS;
 }
 
 Dict *filter_dict(const Dict *dict, BOOL (*filter_callback)(const char *)) {
