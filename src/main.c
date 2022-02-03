@@ -39,12 +39,12 @@ int main(int argc, char **argv) {
 
   // Read letters from file
   int *letters = new_letters();
-  if (get_letter_commonality(letters, LETTERS_PATH) != LETTERS_SUCCESS) {
+  if (read_letter_commonality(letters, LETTERS_PATH) != LETTERS_SUCCESS) {
     printf("Error: failed to read letters file\n");
     return 1;
   }
-  for (int i = 0; i < 26; i++) {
-    printf("Letter %c: %d\n", i + 'a', letters[i]);
+  for (char c = 'a'; c <= 'z'; c++) {
+    printf("Letter %c: %d\n", c, get_commonality(letters, c));
   }
 
   // Done

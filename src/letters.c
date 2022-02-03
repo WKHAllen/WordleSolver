@@ -8,7 +8,7 @@ int *new_letters(void) {
   return letters;
 }
 
-int get_letter_commonality(int *letters, const char *letters_path) {
+int read_letter_commonality(int *letters, const char *letters_path) {
   char letter;
   int commonality;
 
@@ -27,6 +27,10 @@ int get_letter_commonality(int *letters, const char *letters_path) {
   }
 
   return LETTERS_SUCCESS;
+}
+
+int get_commonality(const int *letters, const char letter) {
+  return letters[letter - 'a'];
 }
 
 void free_letters(int *letters) {

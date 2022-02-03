@@ -18,7 +18,12 @@ int *new_letters(void);
 /*
  * Read the letter commonality data from a file.
  */
-int get_letter_commonality(int *letters, const char *letters_path);
+int read_letter_commonality(int *letters, const char *letters_path);
+
+/*
+ * Get the commonality of a letter.
+ */
+int get_commonality(const int *letters, const char letter);
 
 /*
  * Free the memory used by the letter commonality data.
