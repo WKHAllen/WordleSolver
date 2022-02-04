@@ -72,7 +72,7 @@ GuessResultsParseError *parse_guess_results(GuessResults *guess_results, const c
   return error;
 }
 
-int get_letter_count_up_to(const char *word, int index) {
+int get_letter_count_up_to(const char *word, const int index) {
   int count = 0;
 
   for (int i = 0; i < index; i++) {
@@ -117,7 +117,7 @@ char *guess_word(const Dict *dict, const int *letters) {
   return best_guess;
 }
 
-BOOL word_contains(const char *word, char chr) {
+BOOL word_contains(const char *word, const char chr) {
   for (int i = 0; i < 5; i++) {
     if (word[i] == chr) return TRUE;
   }
