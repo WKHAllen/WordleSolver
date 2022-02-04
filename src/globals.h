@@ -25,6 +25,11 @@ size_t get_file_line(FILE *fp, char *line, const int max);
 size_t input(const char *prompt, char *line, const int max);
 
 /*
+ * Pause and wait for a key press.
+ */
+void pause(const char *prompt);
+
+/*
  * Check if a character is a letter.
  */
 BOOL is_letter(const char chr);

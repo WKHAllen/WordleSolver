@@ -17,6 +17,11 @@ size_t input(const char *prompt, char *line, const int max) {
   return get_file_line(stdin, line, max);
 }
 
+void pause(const char *prompt) {
+  printf(prompt);
+  getchar();
+}
+
 BOOL is_letter(const char chr) {
   return (chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z');
 }
