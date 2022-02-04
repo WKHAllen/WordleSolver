@@ -29,7 +29,7 @@ int read_letter_commonality(int *letters, const char *letters_path) {
   return LETTERS_SUCCESS;
 }
 
-int get_commonality(const int *letters, const char letter) {
+int get_commonality(const int *letters, char letter) {
   return letters[letter - 'a'];
 }
 
@@ -47,15 +47,15 @@ BOOL *new_flagged_letters(void) {
   return letters;
 }
 
-void flag_letter(BOOL *letters, const char letter) {
+void flag_letter(BOOL *letters, char letter) {
   letters[letter - 'a'] = TRUE;
 }
 
-void unflag_letter(BOOL *letters, const char letter) {
+void unflag_letter(BOOL *letters, char letter) {
   letters[letter - 'a'] = FALSE;
 }
 
-BOOL is_letter_flagged(const BOOL *letters, const char letter) {
+BOOL is_letter_flagged(const BOOL *letters, char letter) {
   return letters[letter - 'a'];
 }
 

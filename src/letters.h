@@ -25,7 +25,7 @@ int read_letter_commonality(int *letters, const char *letters_path);
 /*
  * Get the commonality of a letter.
  */
-int get_commonality(const int *letters, const char letter);
+int get_commonality(const int *letters, char letter);
 
 /*
  * Free the memory used by the letter commonality data.
@@ -40,17 +40,17 @@ BOOL *new_flagged_letters(void);
 /*
  * Flag a letter.
  */
-void flag_letter(BOOL *letters, const char letter);
+void flag_letter(BOOL *letters, char letter);
 
 /*
  * Unflag a letter.
  */
-void unflag_letter(BOOL *letters, const char letter);
+void unflag_letter(BOOL *letters, char letter);
 
 /*
  * Check if a letter is flagged.
  */
-BOOL is_letter_flagged(const BOOL *letters, const char letter);
+BOOL is_letter_flagged(const BOOL *letters, char letter);
 
 /*
  * Free the memory used by the flagged letter array.

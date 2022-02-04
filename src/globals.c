@@ -2,7 +2,7 @@
 #include <string.h>
 #include "globals.h"
 
-size_t get_file_line(FILE *fp, char *line, const int max) {
+size_t get_file_line(FILE *fp, char *line, int max) {
   if (fgets(line, max, fp) == NULL) {
     return 0;
   } else {
@@ -12,7 +12,7 @@ size_t get_file_line(FILE *fp, char *line, const int max) {
   }
 }
 
-size_t input(const char *prompt, char *line, const int max) {
+size_t input(const char *prompt, char *line, int max) {
   printf(prompt);
   return get_file_line(stdin, line, max);
 }
@@ -22,7 +22,7 @@ void pause(const char *prompt) {
   getchar();
 }
 
-BOOL is_letter(const char chr) {
+BOOL is_letter(char chr) {
   return (chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z');
 }
 
@@ -50,7 +50,7 @@ char *to_lower(const char *str) {
   return lowcase;
 }
 
-char to_upper_char(const char chr) {
+char to_upper_char(char chr) {
   if (chr >= 'a' && chr <= 'z') {
     return chr + ('A' - 'a');
   }
@@ -58,7 +58,7 @@ char to_upper_char(const char chr) {
   return chr;
 }
 
-char to_lower_char(const char chr) {
+char to_lower_char(char chr) {
   if (chr >= 'A' && chr <= 'Z') {
     return chr + ('a' - 'A');
   }

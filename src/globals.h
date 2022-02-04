@@ -17,12 +17,12 @@ typedef int BOOL;
 /*
  * Read a line from a file.
  */
-size_t get_file_line(FILE *fp, char *line, const int max);
+size_t get_file_line(FILE *fp, char *line, int max);
 
 /*
  * Read input from stdin.
  */
-size_t input(const char *prompt, char *line, const int max);
+size_t input(const char *prompt, char *line, int max);
 
 /*
  * Pause and wait for a key press.
@@ -32,7 +32,7 @@ void pause(const char *prompt);
 /*
  * Check if a character is a letter.
  */
-BOOL is_letter(const char chr);
+BOOL is_letter(char chr);
 
 /*
  * Uppercase a string.
@@ -47,11 +47,11 @@ char *to_lower(const char *str);
 /*
  * Uppercase a character.
  */
-char to_upper_char(const char chr);
+char to_upper_char(char chr);
 
 /*
  * Lowercase a character.
  */
-char to_lower_char(const char chr);
+char to_lower_char(char chr);
 
 #endif // GLOBALS_H
