@@ -5,14 +5,14 @@
 #include "dict.h"
 
 GuessResults *new_guess_results(void) {
-  GuessResults *guess_results = malloc(sizeof(GuessResults));
+  GuessResults *guess_results = (GuessResults *)malloc(sizeof(GuessResults));
   guess_results->word = strdup("     ");
-  guess_results->guess_states = malloc(5 * sizeof(LetterGuessState));
+  guess_results->guess_states = (LetterGuessState *)malloc(5 * sizeof(LetterGuessState));
   return guess_results;
 }
 
 GuessResultsParseError *parse_guess_results(GuessResults *guess_results, const char *guess) {
-  GuessResultsParseError *error = malloc(sizeof(GuessResultsParseError));
+  GuessResultsParseError *error = (GuessResultsParseError *)malloc(sizeof(GuessResultsParseError));
   error->error_type = SOLVER_SUCCESS;
   error->bad_char = '\0';
 
@@ -99,7 +99,7 @@ char *guess_word(const Dict *dict, const int *letters) {
     return NULL;
   }
 
-  char *best_guess = malloc(6 * sizeof(char));
+  char *best_guess = (char *)malloc(6 * sizeof(char));
   int best_score = 0;
   Dict *current = dict->next;
 

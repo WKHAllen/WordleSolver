@@ -5,7 +5,7 @@
 #include "globals.h"
 
 Dict *new_dict(void) {
-  Dict *dict = malloc(sizeof(Dict));
+  Dict *dict = (Dict *)malloc(sizeof(Dict));
   dict->word = "";
   dict->next = NULL;
   dict->size = 0;

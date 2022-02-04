@@ -4,7 +4,7 @@
 #include "globals.h"
 
 int *new_letters(void) {
-  int *letters = malloc(26 * sizeof(int));
+  int *letters = (int *)malloc(26 * sizeof(int));
   return letters;
 }
 
@@ -38,7 +38,7 @@ void free_letters(int *letters) {
 }
 
 BOOL *new_flagged_letters(void) {
-  int *letters = malloc(26 * sizeof(BOOL));
+  int *letters = (int *)malloc(26 * sizeof(BOOL));
 
   for (int i = 0; i < 26; i++) {
     letters[i] = FALSE;
