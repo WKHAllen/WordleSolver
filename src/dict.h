@@ -19,9 +19,9 @@
 /*
  * A node in the dictionary.
  */
-typedef struct dictnode {
+typedef struct _Dict {
   char *word;
-  struct dictnode *next;
+  struct _Dict *next;
   size_t size;
 } Dict;
 
@@ -29,6 +29,11 @@ typedef struct dictnode {
  * Create a new dictionary.
  */
 Dict *new_dict(void);
+
+/*
+ * Set the next word in a dictionary.
+ */
+void dict_set_next_word(Dict *node, const char *word);
 
 /*
  * Read a dictionary from a file.
