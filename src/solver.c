@@ -117,9 +117,9 @@ char *guess_word(const Dict *dict, const int *letters) {
   return best_guess;
 }
 
-BOOL word_contains(const char *word, const char chr) {
+BOOL word_contains(const char *word, const char chr, const GuessResults *guess_results) {
   for (int i = 0; i < 5; i++) {
-    if (word[i] == chr) return TRUE;
+    if (word[i] == chr && guess_results->guess_states[i] != CorrectPlace) return TRUE;
   }
 
   return FALSE;
@@ -133,12 +133,12 @@ BOOL word_match(const char *word, const GuessResults *guess_results) {
         break;
 
       case IncorrectPlace:
-        if (word[i] == guess_results->word[i] || !word_contains(word, guess_results->word[i])) return FALSE;
+        if (word[i] == guess_results->word[i] || !word_contains(word, guess_results->word[i], guess_results)) return FALSE;
         break;
 
       case NotUsed:
         for (int j = 0; j < 5; j++) {
-          if (word[j] == guess_results->word[i]) return FALSE;
+          if (word[j] == guess_results->word[i] && guess_results->guess_states[j] != CorrectPlace) return FALSE;
         }
         break;
     }
