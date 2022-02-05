@@ -53,6 +53,4 @@ dkms.conf
 
 # Misc
 todo.txt
-build.bat
-run-debug.bat
-run-release.bat
+/*.bat
