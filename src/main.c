@@ -26,7 +26,7 @@ BOOL is_five_lowercase_letters(const char *word) {
 }
 
 void print_usage(void) {
-  printf("\nW O R D L E    S O L V E R\n\n");
+  printf("W O R D L E    S O L V E R\n\n");
   printf("Usage: Word guesses will be determined and shown on screen. After making a\n");
   printf("guess in Wordle, enter the results of the guess in the prompt here. Type the\n");
   printf("word, with a character before each letter indicating whether the letter is\n");
