@@ -39,6 +39,7 @@ int main(int argc, char **argv) {
   if (read_dict(full_dict, DICT_PATH) != DICT_SUCCESS) {
     printf("Error: failed to read dictionary file\n\n");
     free_dict(full_dict);
+    pause("Press ENTER to exit\n");
     return 1;
   }
 
@@ -52,6 +53,7 @@ int main(int argc, char **argv) {
     printf("Error: failed to read letters file\n\n");
     free_dict(dict);
     free_letters(letters);
+    pause("Press ENTER to exit\n");
     return 1;
   }
 
@@ -101,6 +103,7 @@ int main(int argc, char **argv) {
       free_letters(letters);
       free_guess_results(guess_results);
       free_guess_results_parse_error(parse_error);
+      pause("Press ENTER to exit\n");
       return 1;
     }
 
@@ -117,15 +120,13 @@ int main(int argc, char **argv) {
       printf("ERROR: could not find a word matching the provided parameters\n\n");
       free_dict(dict);
       free_letters(letters);
+      pause("Press ENTER to exit\n");
       return 1;
     } else if (dict->size == 1) {
       char *upcase_word = to_upper(dict->next->word);
-      printf("WORD FOUND: '%s'\n\n", upcase_word);
+      printf("WORD FOUND: '%s'\n", upcase_word);
       free(upcase_word);
       done = TRUE;
-
-      // Wait for key press to exit
-      pause("Press ENTER to exit\n");
     } else {
       // Make next guess
       guess = guess_word(dict, letters);
@@ -140,9 +141,10 @@ int main(int argc, char **argv) {
     }
   }
 
-  // Done
+  // Exit
   free_dict(dict);
   free_letters(letters);
-  printf("\nExiting successfully...\n");
+  pause("\nPress ENTER to exit\n");
+  printf("Exiting successfully...\n");
   return 0;
 }
