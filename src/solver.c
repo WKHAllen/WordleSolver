@@ -138,7 +138,9 @@ BOOL word_match(const char *word, const GuessResults *guess_results) {
 
       case NotUsed:
         for (int j = 0; j < 5; j++) {
-          if (word[j] == guess_results->word[i] && guess_results->guess_states[j] != CorrectPlace) return FALSE;
+          if (word[j] == guess_results->word[i]
+            && guess_results->guess_states[j] != CorrectPlace
+            && guess_results->guess_states[j] != IncorrectPlace) return FALSE;
         }
         break;
     }
